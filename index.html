@@ -81,42 +81,12 @@
     <div id="main-content-column" class="order-2 lg:col-span-6 flex flex-col gap-6">
         
         <div id="tab-section-study" class="space-y-6">
-             <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                     <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
-                     <span>Syllabus Integration & Concept Connections</span>
-                 </h3>
-                 <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
-                     Click any level-bridging line below to filter notes along that conceptual path:
-                 </p>
-                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                     <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
-                         <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
-                         <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
-                             P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
-                         </span>
-                     </button>
-                     <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
-                         <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
-                         <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
-                             P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
-                         </span>
-                     </button>
-                     <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
-                         <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
-                         <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
-                             P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
-                         </span>
-                     </button>
-                 </div>
-             </div>
-
              <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-xl shadow-sm">
                  <div class="flex gap-2">
                      <i class="fa-solid fa-circle-info text-indigo-500 mt-0.5"></i>
                      <div>
                          <h4 class="font-bold text-xs text-indigo-900 uppercase">Active Recall Quiz Mode Active</h4>
-                         <p class="text-xs text-indigo-700">Essential keywords are now concealed under <span class="bg-indigo-600 text-white px-1.5 py-0.5 rounded text-[10px]">blue blocks</span>. Click the block to test your memory!</p>
+                         <p class="text-xs text-indigo-700">Essential keywords are now concealed. Click the block to test your memory!</p>
                      </div>
                  </div>
              </div>
@@ -137,6 +107,10 @@
         </div>
 
         <div id="tab-section-practice" class="hidden space-y-6">
+             <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select Target Syllabus Topic:</label>
+                  <select id="lab-topic-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500"></select>
+             </div>
              </div>
     </div>
 
@@ -155,6 +129,43 @@
     </aside>
 
     <aside class="order-4 lg:col-span-3 flex flex-col gap-6">
+        
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
+                <span>Syllabus Integration & Concept Connections</span>
+            </h3>
+            <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
+                Click any level-bridging line below to filter notes along that conceptual path:
+            </p>
+            <div class="grid grid-cols-1 gap-2">
+                <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
+                    <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
+                    <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
+                        P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
+                    </span>
+                </button>
+                <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
+                    <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
+                    <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                        P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
+                    </span>
+                </button>
+                <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
+                    <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
+                    <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
+                        P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden">
+             <select id="quiz-topic-select"></select>
+             <select id="ai-concept-a"></select>
+             <select id="ai-concept-b"></select>
+        </div>
+
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 flex flex-col h-[520px] overflow-hidden">
              </div>
 
