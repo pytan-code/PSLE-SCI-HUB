@@ -1051,35 +1051,48 @@
         }
 
         // Switch Navigation Tabs
-        window.switchTab = function(tabName) {
-            currentTab = tabName;
-            const studyBtn = document.getElementById("tab-btn-study");
-            const practiceBtn = document.getElementById("tab-btn-practice");
-            const studySection = document.getElementById("tab-section-study");
-            const practiceSection = document.getElementById("tab-section-practice");
-            const sidebarFilters = document.getElementById("sidebar-filters");
-            const searchInput = document.getElementById("search-input-container");
+window.switchTab = function(tabId) {
+    currentTab = tabId;
+    const studyBtn = document.getElementById("tab-btn-study");
+    const practiceBtn = document.getElementById("tab-btn-practice");
+    const studySection = document.getElementById("tab-section-study");
+    const practiceSection = document.getElementById("tab-section-practice");
+    
+    // Replace the old sidebar constant with these two:
+    const sidebarTop = document.getElementById("sidebar-filters-top");
+    const sidebarBottom = document.getElementById("sidebar-filters-bottom");
+    
+    const searchInput = document.getElementById("search-input-container");
 
-            if (tabName === "study") {
-                studyBtn.className = "border-b-4 border-teal-600 text-teal-700 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
-                practiceBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-800 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
-                studySection.classList.remove("hidden");
-                practiceSection.classList.add("hidden");
-                sidebarFilters.classList.remove("hidden");
-                searchInput.classList.remove("hidden");
-            } else {
-                practiceBtn.className = "border-b-4 border-teal-600 text-teal-700 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
-                studyBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-800 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
-                studySection.classList.add("hidden");
-                practiceSection.classList.remove("hidden");
-                sidebarFilters.classList.add("hidden");
-                searchInput.classList.add("hidden");
-                
-                // Initialize Practice components on load
-                loadLabPracticeTopic();
-                loadQuizTopic();
-            }
-        };
+    if (tabId === "study") {
+        studyBtn.className = "border-b-4 border-teal-600 text-teal-700 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
+        practiceBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-800 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
+        
+        studySection.classList.remove("hidden");
+        practiceSection.classList.add("hidden");
+        
+        // Unhide both sidebar parts
+        sidebarTop.classList.remove("hidden");
+        sidebarBottom.classList.remove("hidden");
+        
+        searchInput.classList.remove("hidden");
+    } else if (tabId === "practice") {
+        studyBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-800 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
+        practiceBtn.className = "border-b-4 border-teal-600 text-teal-700 font-bold px-4 py-3 text-sm flex items-center gap-2 transition-all";
+        
+        studySection.classList.add("hidden");
+        practiceSection.classList.remove("hidden");
+        
+        // Hide both sidebar parts
+        sidebarTop.classList.add("hidden");
+        sidebarBottom.classList.add("hidden");
+        
+        searchInput.classList.add("hidden");
+        
+        loadLabPracticeTopic();
+        loadQuizTopic();
+    }
+};
 
         // Render Study Hub Topics Cards
         function renderTopics() {
