@@ -62,118 +62,335 @@
         </div>
     </div>
 
-<main class="flex-grow max-w-7xl mx-auto w-full px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-    
-    <div class="order-1 lg:col-span-3 bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-            <span>Syllabus Levels</span>
-            <i class="fa-solid fa-filter text-slate-300"></i>
-        </h3>
-        <div class="grid grid-cols-2 gap-2" id="level-filters">
-            <button class="level-btn active bg-emerald-500 hover:bg-emerald-600 text-white px-2 py-1.5 rounded-lg text-center font-bold text-xs transition-all" data-level="all">All Grades</button>
-            <button class="level-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-1.5 rounded-lg text-center font-bold text-xs transition-all" data-level="P3">P3 (Lower)</button>
-            <button class="level-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-1.5 rounded-lg text-center font-bold text-xs transition-all" data-level="P4">P4 (Lower)</button>
-            <button class="level-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-1.5 rounded-lg text-center font-bold text-xs transition-all" data-level="P5">P5 (Upper)</button>
-            <button class="level-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-1.5 rounded-lg text-center font-bold text-xs transition-all" data-level="P6">P6 (Upper)</button>
-        </div>
-    </div>
+    <!-- Main Workspace Container -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-6 flex flex-col gap-6 lg:grid lg:grid-cols-12 lg:gap-6">
+        
+        <!-- Left Column: Filter Sidebar (Only visible on Study Hub Tab) -->
+<aside id="sidebar-filters-top" class="order-1 lg:col-span-3 lg:col-start-1 lg:row-start-1">
+        </aside>
 
-    <div id="main-content-column" class="order-2 lg:col-span-6 flex flex-col gap-6">
+    <div id="main-content-column" class="order-2 lg:col-span-6 lg:col-start-4 lg:row-start-1 lg:row-span-2 flex flex-col gap-6">
         
         <div id="tab-section-study" class="space-y-6">
-             <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-xl shadow-sm">
-                 <div class="flex gap-2">
-                     <i class="fa-solid fa-circle-info text-indigo-500 mt-0.5"></i>
-                     <div>
-                         <h4 class="font-bold text-xs text-indigo-900 uppercase">Active Recall Quiz Mode Active</h4>
-                         <p class="text-xs text-indigo-700">Essential keywords are now concealed. Click the block to test your memory!</p>
-                     </div>
-                 </div>
-             </div>
-
-             <div class="flex items-center justify-between bg-white px-4 py-3 rounded-xl shadow-sm border border-slate-100 text-xs font-sans">
-                 <div class="flex items-center gap-1.5 flex-wrap">
-                     <span class="text-slate-500">Showing:</span>
-                     <span id="active-level-badge" class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Grades</span>
-                     <span id="active-theme-badge" class="bg-teal-100 text-teal-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Themes</span>
-                     <button onclick="resetAllFilters()" id="reset-filter-badge" class="hidden bg-rose-100 hover:bg-rose-200 text-rose-800 px-2 py-0.5 rounded-md font-extrabold text-[10px] uppercase transition-all flex items-center gap-1">
-                         <i class="fa-solid fa-circle-xmark"></i> Clear Filter / Show All
-                     </button>
-                 </div>
-                 <div class="text-slate-400 font-medium" id="filtered-count-text">Calculating counts...</div>
-             </div>
-
-             <div id="topics-container" class="space-y-4"></div>
-        </div>
-
+            <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 ...">
+               ...
+            </div>
+            
+            </div>
+        
         <div id="tab-section-practice" class="hidden space-y-6">
-             <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select Target Syllabus Topic:</label>
-                  <select id="lab-topic-select" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs sm:text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500"></select>
-             </div>
-             </div>
+            </div>
     </div>
 
-    <aside id="sidebar-filters" class="order-3 lg:col-span-3 flex flex-col gap-6">
-        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
-                <span>Syllabus Themes</span>
-                <i class="fa-solid fa-layer-group text-slate-300"></i>
-            </h3>
-            <div class="flex flex-col gap-1.5" id="theme-filters">
-                 </div>
-        </div>
+    <aside id="sidebar-filters-bottom" class="order-3 lg:col-span-3 lg:col-start-1 lg:row-start-2 flex flex-col gap-6">
+        </aside>
 
-        <div class="bg-gradient-to-br from-emerald-800 to-teal-900 text-white rounded-2xl p-4 shadow-md text-xs font-sans">
-            </div>
-    </aside>
-
-    <aside class="order-4 lg:col-span-3 flex flex-col gap-6">
+    <aside class="order-4 lg:col-span-3 lg:col-start-10 lg:row-start-1 lg:row-span-2 flex flex-col gap-6">
         
         <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
-                <span>Syllabus Integration & Concept Connections</span>
-            </h3>
-            <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
-                Click any level-bridging line below to filter notes along that conceptual path:
-            </p>
-            <div class="grid grid-cols-1 gap-2">
-                <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
-                    <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
-                    <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
-                        P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
-                    </span>
-                </button>
-                <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
-                    <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
-                    <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
-                        P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
-                    </span>
-                </button>
-                <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
-                    <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
-                    <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
-                        P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
-                    </span>
-                </button>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
+                        <span>Syllabus Integration & Concept Connections</span>
+                    </h3>
+        </aside>
+
+        <!-- Center Column -->
+        <div class="lg:col-span-6 flex flex-col gap-6" id="main-content-column">
+            
+            <!-- SECTION 1: STUDY HUB (Visible when currentTab === 'study') -->
+            <div id="tab-section-study" class="space-y-6">
+                
+                    <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
+                        Click any level-bridging line below to filter notes along that conceptual path:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
+                            <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
+                            <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
+                                P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
+                            </span>
+                        </button>
+                        <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
+                            <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
+                            <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                                P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
+                            </span>
+                        </button>
+                        <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
+                            <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
+                            <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
+                                P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-xl shadow-sm">
+                    <div class="flex gap-2">
+                        <i class="fa-solid fa-circle-info text-indigo-500 mt-0.5"></i>
+                        <div>
+                            <h4 class="font-bold text-xs text-indigo-900 uppercase">Active Recall Quiz Mode Active</h4>
+                            <p class="text-xs text-indigo-700">Essential keywords are now concealed under <span class="bg-indigo-600 text-white px-1.5 py-0.5 rounded text-[10px]">blue blocks</span>. Read through and click the block to test your memory!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between bg-white px-4 py-3 rounded-xl shadow-sm border border-slate-100 text-xs font-sans">
+                    <div class="flex items-center gap-1.5 flex-wrap font-sans">
+                        <span class="text-slate-500">Showing:</span>
+                        <span id="active-level-badge" class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Grades</span>
+                        <span id="active-theme-badge" class="bg-teal-100 text-teal-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Themes</span>
+                        <button onclick="resetAllFilters()" id="reset-filter-badge" class="hidden bg-rose-100 hover:bg-rose-200 text-rose-800 px-2 py-0.5 rounded-md font-extrabold text-[10px] uppercase transition-all flex items-center gap-1">
+                            <i class="fa-solid fa-circle-xmark"></i> Clear Filter / Show All
+                        </button>
+                    </div>
+                    <div class="text-slate-400 font-medium font-sans" id="filtered-count-text">
+                        Calculating counts...
+                    </div>
+                </div>
+
+                <div id="topics-container" class="space-y-4"></div>
             </div>
+
+            <!-- SECTION 2: PRACTICE LAB (Visible when currentTab === 'practice') -->
+            <div id="tab-section-practice" class="hidden space-y-6">
+                <div class="bg-gradient-to-r from-teal-800 to-indigo-950 text-white rounded-2xl p-5 shadow-sm">
+                    <h3 class="font-bold text-lg mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-play text-amber-400"></i>
+                        <span>Answering Technique Laboratory</span>
+                    </h3>
+                    <p class="text-xs text-teal-100 leading-relaxed font-sans">
+                        Select any syllabus topic from P3 to P6 to practice **Q-C-E question stem annotation** and construct perfect **C-E-R scientific arguments**!
+                    </p>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 font-sans">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">Select Lab Practice Topic:</label>
+                    <select id="lab-topic-select" onchange="loadLabPracticeTopic()" class="w-full text-xs p-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-teal-500 font-semibold text-slate-700 outline-none">
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
+                    <!-- Q-C-E Workspace Area -->
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-xs text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>1. Q-C-E Highlighting Practice</span>
+                                <i class="fa-solid fa-highlighter text-blue-500"></i>
+                            </h4>
+                            <p class="text-[11px] text-slate-500 mb-3 font-sans">Underline words based on key details. Click a mode below, then click any word in the box:</p>
+                            
+                            <div class="grid grid-cols-3 gap-1 mb-3">
+                                <button onclick="setLabTool('qtype')" id="lab-qce-tool-qtype" class="p-1.5 text-[10px] font-bold rounded border-b-4 border-blue-500 bg-blue-50 text-blue-800 text-center transition-all">Q-Type</button>
+                                <button onclick="setLabTool('concept')" id="lab-qce-tool-concept" class="p-1.5 text-[10px] font-bold rounded border-b-4 border-slate-200 bg-slate-50 text-slate-600 text-center transition-all font-sans">Concept</button>
+                                <button onclick="setLabTool('evidence')" id="lab-qce-tool-evidence" class="p-1.5 text-[10px] font-bold rounded border-b-4 border-slate-200 bg-slate-50 text-slate-600 text-center transition-all">Evidence</button>
+                            </div>
+
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs min-h-[90px] leading-relaxed mb-3 font-semibold" id="lab-annotator-box">
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-[10px]">
+                            <button onclick="revealModelQCE()" class="text-teal-600 hover:text-teal-800 font-bold flex items-center gap-1 font-sans"><i class="fa-solid fa-wand-magic-sparkles"></i> Show Highlights</button>
+                            <button onclick="resetLabQCE()" class="text-slate-400 hover:text-slate-600 font-semibold">Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- C-E-R Answer Formulator Workspace -->
+                    <div class="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-xs text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between font-sans">
+                                <span>2. C-E-R Answer Builder</span>
+                                <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>
+                            </h4>
+                            <p class="text-[11px] text-slate-500 mb-3 font-sans">Draft structured statements based on conditions:</p>
+                            
+                            <div class="space-y-2">
+                                <input type="text" id="lab-cer-choice" placeholder="1. Choice / Claim (e.g., Block X...)" class="w-full text-xs p-2.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-teal-500 outline-none">
+                                <input type="text" id="lab-cer-evidence" placeholder="2. Evidence (Observation, e.g., It took the most time to slide...)" class="w-full text-xs p-2.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-teal-500 outline-none">
+                                <input type="text" id="lab-cer-reason" placeholder="3. Reasoning (Syllabus Concept, e.g., Since rubber has rougher...)" class="w-full text-xs p-2.5 border border-slate-200 rounded-lg focus:ring-1 focus:ring-teal-500 outline-none">
+                            </div>
+                        </div>
+                        <div class="flex gap-2 mt-3">
+                            <button onclick="generateLabCERAnswer()" class="flex-grow bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold py-2 rounded-xl transition-all">Build Answer Draft</button>
+                            <button onclick="revealModelCER()" class="bg-teal-50 hover:bg-teal-100 text-teal-700 text-xs font-bold px-3 py-2 rounded-xl transition-all border border-teal-200">Show Model C-E-R</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Display Answer Box -->
+                <div id="lab-cer-draft-output" class="hidden bg-emerald-50 border border-emerald-200 p-4 rounded-2xl font-sans">
+                    <h5 class="font-bold text-xs text-emerald-800 mb-1 flex items-center gap-1.5">
+                        <i class="fa-regular fa-circle-check"></i> Built Answer Draft:
+                    </h5>
+                    <div id="lab-cer-text-content" class="text-xs text-slate-700 leading-relaxed space-y-1"></div>
+                </div>
+
+                <!-- ✨ AI ACTIVE PRACTICE STUDIO (Uses Google Gemini LLM API) -->
+                <div class="bg-gradient-to-br from-indigo-900 via-slate-900 to-teal-950 text-white rounded-2xl p-5 shadow-lg border border-indigo-500/30">
+                    <div class="flex items-center gap-2.5 mb-3">
+                        <div class="p-2 bg-indigo-500/20 text-indigo-300 rounded-xl border border-indigo-500/30">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base tracking-wide">✨ AI Active Practice Studio</h3>
+                            <p class="text-xs text-slate-400">Evaluate answers, link topics, and generate custom mock exams instantly</p>
+                        </div>
+                    </div>
+
+                    <!-- Studio Internal Tab Controls -->
+                    <div class="flex bg-white/10 p-1 rounded-xl mb-4 text-xs font-semibold gap-1">
+                        <button onclick="setAiMode('grader')" id="ai-tab-grader" class="flex-1 py-1.5 rounded-lg text-center bg-indigo-600 text-white transition-all">✨ AI Answer Grader</button>
+                        <button onclick="setAiMode('linker')" id="ai-tab-linker" class="flex-1 py-1.5 rounded-lg text-center hover:bg-white/5 text-slate-300 transition-all">✨ AI Concept Connector</button>
+                        <button onclick="setAiMode('quizzer')" id="ai-tab-quizzer" class="flex-1 py-1.5 rounded-lg text-center hover:bg-white/5 text-slate-300 transition-all">✨ AI Question Generator</button>
+                    </div>
+
+                    <!-- AI Mode: Grader Panel -->
+                    <div id="ai-panel-grader" class="space-y-3">
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Test your structured science answer! Type your response below based on the current Lab Question. Our AI Study Buddy will evaluate your **C-E-R structure** and check for vital science keywords:
+                        </p>
+                        <textarea id="ai-student-answer" rows="3" placeholder="Type your response here..." class="w-full text-xs p-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none text-slate-100"></textarea>
+                        <button onclick="runAiAnswerGrader()" class="w-full bg-gradient-to-r from-indigo-500 to-teal-500 hover:from-indigo-600 hover:to-teal-600 text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-graduation-cap"></i> ✨ Evaluate Answer with AI Study Buddy
+                        </button>
+                    </div>
+
+                    <!-- AI Mode: Linker Panel -->
+                    <div id="ai-panel-linker" class="hidden space-y-3">
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Select any two Science topics to discover how they connect and work together across grades:
+                        </p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[10px] text-slate-400 uppercase font-semibold mb-1 font-sans">Topic A:</label>
+                                <select id="ai-concept-a" class="w-full p-2 bg-white/10 border border-white/10 rounded-lg text-[11px] text-slate-200 outline-none"></select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-400 uppercase font-semibold mb-1 font-sans">Topic B:</label>
+                                <select id="ai-concept-b" class="w-full p-2 bg-white/10 border border-white/10 rounded-lg text-[11px] text-slate-200 outline-none"></select>
+                            </div>
+                        </div>
+                        <button onclick="runAiConceptLinker()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-circle-nodes"></i> ✨ Link Concepts with AI
+                        </button>
+                    </div>
+
+                    <!-- AI Mode: Quizzer Panel -->
+                    <div id="ai-panel-quizzer" class="hidden space-y-3">
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Get a completely fresh, unseen open-ended PSLE question generated dynamically for your active selected topic:
+                        </p>
+                        <button onclick="runAiQuizzer()" class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-bolt"></i> ✨ Generate Fresh AI Question
+                        </button>
+                    </div>
+
+                    <!-- Loader Spinner -->
+                    <div id="ai-studio-loader" class="hidden mt-4 p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-spinner animate-spin text-teal-400 text-xl font-sans"></i>
+                        <span class="text-xs font-semibold text-teal-300" id="ai-loader-text">AI Study Assistant is evaluating...</span>
+                    </div>
+
+                    <!-- AI Output Result Console -->
+                    <div id="ai-studio-output-console" class="hidden mt-4 p-4 bg-white text-slate-800 rounded-2xl border border-indigo-500/20 max-h-[350px] overflow-y-auto">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
+                            <span class="text-xs font-bold text-indigo-900 flex items-center gap-1"><i class="fa-solid fa-lightbulb"></i> AI Assistant Evaluation</span>
+                            <button onclick="copyAiStudioResult()" class="text-[10px] text-slate-500 hover:text-slate-800 flex items-center gap-1"><i class="fa-regular fa-clipboard"></i> Copy Response</button>
+                        </div>
+                        <div id="ai-studio-result" class="text-xs leading-relaxed space-y-2 text-slate-700"></div>
+                    </div>
+                </div>
+
+                <!-- Interactive Topic-Based Quiz Section -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 font-sans font-sans">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 pb-3 mb-4 gap-2">
+                        <div>
+                            <h3 class="font-bold text-base text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-teal-600"></i>
+                                <span>5-MCQ Topic Practice Quizzes</span>
+                            </h3>
+                            <p class="text-xs text-slate-500 font-sans font-sans">Practice quizzes matching Singapore MOE primary science syllabus patterns</p>
+                        </div>
+                        <select id="quiz-topic-select" onchange="loadQuizTopic()" class="text-xs p-2 bg-slate-50 border border-slate-300 rounded-lg focus:ring-1 focus:ring-teal-500 font-semibold text-slate-700 font-sans">
+                        </select>
+                    </div>
+
+                    <!-- Quiz Question Block -->
+                    <div id="quiz-block" class="space-y-4 font-sans">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="hidden">
-             <select id="quiz-topic-select"></select>
-             <select id="ai-concept-a"></select>
-             <select id="ai-concept-b"></select>
-        </div>
+        <!-- Right Column: AI Tutor & Quick Flashcards (Globally Persistent) -->
+        <aside class="lg:col-span-3 flex flex-col gap-6">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 flex flex-col h-[520px] overflow-hidden">
+                <!-- Chat Header -->
+                <div class="bg-gradient-to-r from-teal-700 to-emerald-600 text-white p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="relative">
+                            <i class="fa-solid fa-robot text-xl"></i>
+                            <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm tracking-wide">PSLE Study Buddy</h4>
+                            <span class="text-[9px] text-teal-100 block">Ask questions, request summaries</span>
+                        </div>
+                    </div>
+                    <button id="clear-chat" class="text-teal-200 hover:text-white transition-colors" title="Clear Chat History">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 flex flex-col h-[520px] overflow-hidden">
-             </div>
+                <!-- Chat Quick Prompts -->
+                <div class="p-2 bg-slate-50 border-b border-slate-100 flex gap-1.5 overflow-x-auto whitespace-nowrap text-[11px] text-slate-600">
+                    <button class="quick-prompt-btn bg-white hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded-md transition-colors">Compare Transport Systems</button>
+                    <button class="quick-prompt-btn bg-white hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded-md transition-colors font-sans">Rate of Evaporation Factors</button>
+                    <button class="quick-prompt-btn bg-white hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded-md transition-colors">Quiz me on C-E-R!</button>
+                </div>
 
-        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80">
-             </div>
-    </aside>
+                <!-- Chat Log Viewport -->
+                <div id="chat-box" class="flex-grow p-4 overflow-y-auto space-y-3 text-xs">
+                    <div class="bg-teal-50 border border-teal-100 text-slate-700 p-3 rounded-2xl rounded-tl-none">
+                        <p class="font-semibold text-[11px] text-teal-800 mb-1"><i class="fa-solid fa-robot mr-1"></i> Science Buddy</p>
+                        <p class="text-xs">Hi student or parent! I am your AI Science specialist, trained in the **latest Singapore MOE Primary Science Syllabus (P3-P6)**. 📝</p>
+                        <p class="text-xs mt-1">Ask me anything, or click "Explain" on any card on the left to review specific keyword formulations!</p>
+                    </div>
+                </div>
 
-</main>
+                <div id="ai-typing-indicator" class="hidden px-4 py-2 bg-slate-50 text-[11px] text-slate-500 italic flex items-center gap-1.5 border-t border-slate-100">
+                    <i class="fa-solid fa-spinner animate-spin text-teal-600"></i>
+                    Thinking of Science explanations...
+                </div>
+
+                <!-- Chat Input Controller -->
+                <div class="p-3 bg-slate-50 border-t border-slate-100">
+                    <form id="chat-form" class="flex gap-2">
+                        <input type="text" id="chat-input" placeholder="Ask a Science question..." class="flex-grow bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-teal-500" required>
+                        <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white p-2.5 rounded-xl transition-colors flex items-center justify-center">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Active Recall Flashcard Mini-App -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80">
+                <h4 class="font-bold text-xs text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1">
+                    <i class="fa-solid fa-bolt text-yellow-500"></i> Quick Quiz Flashcard
+                </h4>
+                <div class="bg-amber-50/50 border border-amber-200 rounded-xl p-3 text-center min-h-[100px] flex flex-col justify-between" id="flashcard-box">
+                    <p id="flashcard-text" class="text-xs font-semibold text-slate-700">What is the only sure test to prove that an object is a magnet?</p>
+                    <div class="mt-2 pt-2 border-t border-amber-200/50 flex justify-between items-center gap-2">
+                        <button onclick="revealFlashcardAnswer()" class="text-[10px] bg-slate-800 text-white px-2 py-1 rounded hover:bg-slate-900 transition-colors">Show Answer</button>
+                        <button onclick="nextFlashcard()" class="text-[10px] text-slate-500 hover:text-slate-800 transition-colors font-medium">Next Card <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
 
     <!-- Floating Add Topic Summary Node Modal (Active only on Study Hub tab) -->
     <div id="add-topic-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
