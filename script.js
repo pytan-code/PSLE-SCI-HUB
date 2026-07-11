@@ -1847,3 +1847,18 @@
             // Start flashcards
             document.getElementById("flashcard-text").innerText = flashcards[0].q;
         };
+// Reset all filters back to default
+window.resetAllFilters = function() {
+    currentLevel = "all";
+    currentTheme = "all";
+    searchQuery = "";
+    
+    // Reset the visible search input box if it exists
+    const searchInput = document.getElementById("global-search");
+    if (searchInput) {
+        searchInput.value = "";
+    }
+    
+    // Refresh the topics on the screen
+    renderTopics();
+};
