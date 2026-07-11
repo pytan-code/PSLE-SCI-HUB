@@ -11,11 +11,10 @@ let syllabusData = [
         notes: `
             <div class="space-y-3 text-xs sm:text-sm">
                 <div>
-                    <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans">1. Core Characteristics vs Needs</span>
-                    <p class="mt-1 font-sans">Students must strictly separate what living things <strong>need</strong> from what they <strong>do</strong>:</p>
+                    <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans">1. Core Characteristics</span>
                     <ul class="list-disc pl-5 mt-1 space-y-0.5 font-medium font-sans">
-                        <li><strong>What they NEED:</strong> Water, food, and air (essential for survival).</li>
-                        <li><strong>What they DO:</strong> They <strong>grow</strong>, <strong>reproduce</strong>, and <strong>respond to changes</strong> in their surroundings.</li>
+                        <li>They need <strong> air, food and water </strong> (essential for survival).</li>
+                        <li>They <strong>grow</strong>, <strong>reproduce</strong>, and <strong>respond to changes</strong> in their surroundings.</li>
                     </ul>
                 </div>
                 <div>
@@ -28,14 +27,14 @@ let syllabusData = [
                 <div>
                     <span class="text-[10px] font-extrabold bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans font-sans font-sans font-sans">3. Fungi & Bacteria (The Decomposers)</span>
                     <ul class="list-disc pl-5 mt-1 space-y-0.5 font-sans">
-                        <li><strong>Fungi:</strong> (e.g. yeast, mushrooms, bread mould). They are NOT plants because they lack chlorophyll and cannot make their own food. They <strong>reproduce by spores</strong>.</li>
-                        <li><strong>Bacteria:</strong> <strong>Microscopic</strong>, single-celled living things that split to reproduce.</li>
+                        <li><strong>Fungi:</strong> (e.g. yeast, mushrooms, bread mould). They are NOT plants because they lack chlorophyll and <strong>cannot make their own food</strong>. They <strong>reproduce by spores</strong>.</li>
+                        <li><strong>Bacteria:</strong> <strong>Microscopic</strong>, single-celled living things.</li>
                         <li>Both act as <strong>decomposers</strong>, obtaining nutrients by breaking down dead plants, animals, or organic matter they grow on.</li>
                     </ul>
                 </div>
                 <div class="bg-amber-50 border border-amber-200 p-2.5 rounded-xl text-xs font-sans">
-                    <span class="font-bold text-amber-800 font-sans font-sans"><i class="fa-solid fa-flask mr-1"></i>MOE Investigation focus: Mould Growth Conditions</span>
-                    <p class="mt-1 text-slate-700 font-medium">Bread mould requires three specific conditions to grow: <strong>Moisture (Water)</strong>, <strong>Air</strong>, and <strong>Warmth</strong> (darkness is NOT a required condition, but warmth is!).</p>
+                    <span class="font-bold text-amber-800 font-sans font-sans"><i class="fa-solid fa-flask mr-1"></i>Investigation: Mould Growth Conditions</span>
+                    <p class="mt-1 text-slate-700 font-medium">Bread mould requires 3 conditions <strong> (WOW) </strong> to grow: <strong>Water</strong>, <strong>Air</strong>, and <strong>Warmth</strong> (Darkness is NOT a required condition!).</p>
                 </div>
             </div>
         `
@@ -51,22 +50,24 @@ let syllabusData = [
         notes: `
             <div class="space-y-3 text-xs sm:text-sm font-sans font-sans">
                 <div>
-                    <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans font-sans">1. Objects vs Materials</span>
-                    <p class="mt-1 font-sans">An object is the item itself (e.g., a bottle), while the <strong>material</strong> is what the object is made of (e.g., plastic, metal, wood, glass, ceramics, fabric).</p>
+                    <span class="text-[10px] font-extrabold bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans font-sans">1. Materials</span>
+                    <p class="mt-1 font-sans">The <strong>material</strong> is what the object is made of (e.g., plastic, metal, wood, glass, ceramics, fabric).</p>
                 </div>
                 <div>
                     <span class="text-[10px] font-extrabold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded tracking-wide uppercase font-sans font-sans">2. Core Physical Properties</span>
                     <ul class="list-disc pl-5 mt-1 space-y-1 font-sans">
-                        <li><strong>Strength:</strong> The ability of a material to support a heavy load without breaking or tearing. (Tested by hanging weights).</li>
-                        <li><strong>Flexibility:</strong> The ability of a material to bend without breaking.</li>
-                        <li><strong>Waterproof vs Absorbent:</strong> A <strong>waterproof</strong> material does not absorb water. An absorbent material sucks up water.</li>
+                        <li><strong>Strength:</strong> The ability of a material to <strong>support a heavy load without breaking or tearing</strong>. (Tested by hanging weights).</li>
+                        <li><strong>Flexibility:</strong> The ability of a material to <strong>bend without breaking</strong>.</li>
+                        <li><strong>Waterproof vs Absorbent:</strong> A <strong>waterproof</strong> material does not absorb water. An absorbent material absorbs water.</li>
                         <li><strong>Transparency:</strong> Classified into transparent (allows most light to pass through), translucent (allows some light to pass through), or opaque (allows no light to pass through).</li>
                         <li><strong>Ability to float or sink:</strong> Some materials <strong>float</strong> on water while others <strong>sink</strong>.</li>
+                        <li><strong>Good/Poor conductors of heat:</strong> Heat flows fast in good conductors of heat and flows slow in poor conductors of heat. </li>
+                        <li><strong>Conductors/Insulators of electricity:</strong> A conductor of electricity allows current to flow through while an insulator of electrical does not allow current to flow through.</li>
                     </ul>
                 </div>
                 <div class="bg-indigo-50 border border-indigo-200 p-2.5 rounded-xl text-xs font-sans">
-                    <span class="font-bold text-indigo-800"><i class="fa-solid fa-lightbulb mr-1 font-sans"></i>Answering Sentence Frame:</span>
-                    <p class="mt-1 text-slate-700 font-medium">"If this object is made of <strong>metal</strong>, it can support a heavy load because it has high <strong>strength</strong>."</p>
+                    <span class="font-bold text-indigo-800"><i class="fa-solid fa-lightbulb mr-1 font-sans"></i>Answering with CER:</span>
+                    <p class="mt-1 text-slate-700 font-medium">"<strong>E:</strong>Object A could support<strong> a heavier load </strong> than Object B.   <strong>R:</strong>Hence, object A is <strong> stronger than </strong> Object B."</p>
                 </div>
             </div>
         `
