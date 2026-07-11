@@ -62,10 +62,8 @@
         </div>
     </div>
 
-<!-- Main Workspace Container -->
 <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
     
-    <!-- 1. SYLLABUS LEVELS (Stays at the top on phone) -->
     <div class="order-1 lg:col-span-3 bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
         <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
             <span>Syllabus Levels</span>
@@ -80,87 +78,88 @@
         </div>
     </div>
 
-    <!-- 2. MAIN CONTENT COLUMN (Appears right after Levels on phone) -->
-    <div id="main-content-column" class="order-2 lg:col-span-6 lg:row-span-2 flex flex-col gap-6">
+    <div id="main-content-column" class="order-2 lg:col-span-6 flex flex-col gap-6">
         
-        <!-- SECTION 1: STUDY HUB -->
         <div id="tab-section-study" class="space-y-6">
-            <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-xl shadow-sm">
-                <!-- ... recall instructions content ... -->
-            </div>
+             <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                 <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                     <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
+                     <span>Syllabus Integration & Concept Connections</span>
+                 </h3>
+                 <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
+                     Click any level-bridging line below to filter notes along that conceptual path:
+                 </p>
+                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                     <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
+                         <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
+                         <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
+                             P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
+                         </span>
+                     </button>
+                     <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
+                         <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
+                         <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
+                             P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
+                         </span>
+                     </button>
+                     <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
+                         <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
+                         <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
+                             P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
+                         </span>
+                     </button>
+                 </div>
+             </div>
 
-            <div class="flex items-center justify-between bg-white px-4 py-3 rounded-xl shadow-sm border border-slate-100 text-xs font-sans">
-                <!-- ... filters active badges ... -->
-            </div>
+             <div id="recall-instruction" class="hidden bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded-r-xl shadow-sm">
+                 <div class="flex gap-2">
+                     <i class="fa-solid fa-circle-info text-indigo-500 mt-0.5"></i>
+                     <div>
+                         <h4 class="font-bold text-xs text-indigo-900 uppercase">Active Recall Quiz Mode Active</h4>
+                         <p class="text-xs text-indigo-700">Essential keywords are now concealed under <span class="bg-indigo-600 text-white px-1.5 py-0.5 rounded text-[10px]">blue blocks</span>. Click the block to test your memory!</p>
+                     </div>
+                 </div>
+             </div>
 
-            <div id="topics-container" class="space-y-4"></div>
+             <div class="flex items-center justify-between bg-white px-4 py-3 rounded-xl shadow-sm border border-slate-100 text-xs font-sans">
+                 <div class="flex items-center gap-1.5 flex-wrap">
+                     <span class="text-slate-500">Showing:</span>
+                     <span id="active-level-badge" class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Grades</span>
+                     <span id="active-theme-badge" class="bg-teal-100 text-teal-800 px-2 py-0.5 rounded-md font-bold text-[10px] uppercase">All Themes</span>
+                     <button onclick="resetAllFilters()" id="reset-filter-badge" class="hidden bg-rose-100 hover:bg-rose-200 text-rose-800 px-2 py-0.5 rounded-md font-extrabold text-[10px] uppercase transition-all flex items-center gap-1">
+                         <i class="fa-solid fa-circle-xmark"></i> Clear Filter / Show All
+                     </button>
+                 </div>
+                 <div class="text-slate-400 font-medium" id="filtered-count-text">Calculating counts...</div>
+             </div>
+
+             <div id="topics-container" class="space-y-4"></div>
         </div>
 
-        <!-- SECTION 2: PRACTICE LAB -->
         <div id="tab-section-practice" class="hidden space-y-6">
-            <!-- ... practice lab contents ... -->
-        </div>
+             </div>
     </div>
 
-    <!-- 3. REMAINING LEFT SIDEBAR PIECES (Appears after main text on phone) -->
-    <aside id="sidebar-filters-rest" class="order-3 lg:col-span-3 flex flex-col gap-6">
+    <aside id="sidebar-filters" class="order-3 lg:col-span-3 flex flex-col gap-6">
         <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
             <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center justify-between">
                 <span>Syllabus Themes</span>
                 <i class="fa-solid fa-layer-group text-slate-300"></i>
             </h3>
-            <!-- ... theme-filters buttons ... -->
+            <div class="flex flex-col gap-1.5" id="theme-filters">
+                 </div>
         </div>
 
         <div class="bg-gradient-to-br from-emerald-800 to-teal-900 text-white rounded-2xl p-4 shadow-md text-xs font-sans">
-            <!-- ... The Exam Formula panel ... -->
-        </div>
+            </div>
     </aside>
 
-    <!-- 4. RIGHT SIDEBAR PIECES + NEW CONCEPT CONNECTIONS SIDEBAR (Appears last on phone) -->
     <aside class="order-4 lg:col-span-3 flex flex-col gap-6">
-        
-        <!-- NEW POSITION: Syllabus Integration & Concept Connections Sidebar -->
-        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
-            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-circle-nodes text-indigo-500"></i>
-                <span>Syllabus Integration & Concept Connections</span>
-            </h3>
-            <p class="text-[11px] text-slate-500 mb-3 leading-relaxed font-sans">
-                Click any level-bridging line below to filter notes along that conceptual path:
-            </p>
-            <div class="grid grid-cols-1 gap-2">
-                <!-- Changed from grid-cols-3 to grid-cols-1 to fit sidebar width smoothly -->
-                <button onclick="filterByLinkage('Digestive', 'Systems')" class="p-2 bg-indigo-50 hover:bg-indigo-100 rounded-xl text-left border border-indigo-100 transition-colors">
-                    <span class="text-[9px] font-bold text-indigo-400 uppercase block">Circulatory vs Digestive</span>
-                    <span class="text-xs font-bold text-indigo-900 flex items-center gap-1 font-sans">
-                        P5 Transport <i class="fa-solid fa-right-long text-[9px]"></i> P3 Digest
-                    </span>
-                </button>
-                <button onclick="filterByLinkage('Forces', 'Interactions')" class="p-2 bg-amber-50 hover:bg-amber-100 rounded-xl text-left border border-amber-100 transition-colors">
-                    <span class="text-[9px] font-bold text-amber-500 uppercase block">Forces & Magnets</span>
-                    <span class="text-xs font-bold text-amber-900 flex items-center gap-1">
-                        P6 Forces <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Magnets
-                    </span>
-                </button>
-                <button onclick="filterByLinkage('Life Cycle', 'Cycles')" class="p-2 bg-emerald-50 hover:bg-emerald-100 rounded-xl text-left border border-emerald-100 transition-colors">
-                    <span class="text-[9px] font-bold text-emerald-500 uppercase block">Life Cycle & Germination</span>
-                    <span class="text-xs font-bold text-emerald-900 flex items-center gap-1">
-                        P5 Plants <i class="fa-solid fa-right-long text-[9px]"></i> P3/P4 Cycles
-                    </span>
-                </button>
-            </div>
-        </div>
-
-        <!-- PSLE Study Buddy Chat System -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 flex flex-col h-[520px] overflow-hidden">
-            <!-- ... Chat system markup ... -->
-        </div>
+             </div>
 
-        <!-- Active Recall Flashcard Mini-App -->
         <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80">
-            <!-- ... Flashcards markup ... -->
-        </div>
+             </div>
     </aside>
 
 </main>
